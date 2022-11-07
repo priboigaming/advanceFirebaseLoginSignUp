@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134573910402",
+    "project_id": "heyo-chat-98b9c",
+    "storage_bucket": "heyo-chat-98b9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134573910402:android:c50dbc8cf2e29d11e5c79b",
+        "android_client_info": {
+          "package_name": "com.example.heyo_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134573910402-87ej3r0qj83t2i7pk8ooe905jk0fvedb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-NM4tlmfcgGpiX8C0qGGdYgzRJUdN0Ug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134573910402-87ej3r0qj83t2i7pk8ooe905jk0fvedb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
