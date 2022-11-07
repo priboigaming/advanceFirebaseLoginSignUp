@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
@@ -43,6 +44,12 @@ class _RegisterPageState extends State<RegisterPage> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+      // firestore database
+
+      userData(
+          name: _userNameController.text.trim(),
+          email: _emailController.text.trim(),
+          uid: FirebaseAuth.instance.currentUser!.uid);
     } on FirebaseAuthException catch (e) {
       Utils.showSnackBar(e.message);
     }
@@ -50,8 +57,27 @@ class _RegisterPageState extends State<RegisterPage> {
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 
+  //firestore database
+  Future userData(
+      {required String name,
+      required String email,
+      required String uid}) async {
+    final docUser = FirebaseFirestore.instance
+        .collection('userdata')
+        .doc(FirebaseAuth.instance.currentUser!.uid);
+
+    final data = {
+      'username': name,
+      'email': email,
+      'uid': uid,
+    };
+
+    await docUser.set(data);
+  }
+
   @override
   void dispose() {
+    _userNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
